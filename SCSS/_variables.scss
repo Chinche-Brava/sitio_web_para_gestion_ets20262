@@ -1,0 +1,48 @@
+//*  Dimensiones
+$website-width: 1280px;
+
+//todo Gobierno de México
+$gov-maroon: #621132; // Guinda oficial
+$gov-gold: #bc955c; // Dorado oficial
+$gov-green: #10312b; // Verde oscuro
+$gov-light-gray: #b6b5b5c4; // Gris claro de fondo b6b5b5c4
+$gov-dark-gray: #a5a5a5; // Gris oscuro de fondo
+
+//*-- IPN O ---
+$ipn-maroon: #6a1b32; // Guinda oficial
+$ipn-gold: #988050; // Dorado
+$ipn-white: #fff; // Blanco puro
+$ipn-light-gray: #e5e5e5; // Gris para fondos sutiles
+
+//?  ESCOM (Paleta Institucional Azul)
+$escom-dark-blue: #0f2854;
+$escom-primary: #1c4d8d;
+$escom-medium-blue: #4988c4;
+$escom-light-blue: #bde8f5;
+$escom-navy: #213448; // Dark color
+$escom-muted-blue: #547792; // "Apagado"
+$escom-soft-blue: #94b4c1;
+$escom-cream: #eae0cf;
+$escom-light: #fff;
+
+//?  Materias
+$ia-color: #6dc3bb; // Inteligencia Artificial
+$isc-2020: #393d7e; // ISC Plan 2020
+$isc-2009: #5c62c5; // ISC Plan 2009
+$lcd-color: #283cce; // Lic. Ciencia de Datos
+$isisa-color: #f2aebb; // ISISA
+
+//* Tipografía y Neutros
+$text-dark: #212529; // Un negro suave
+$text-light: #fff; // Blanco puro
+$bg-white: #fbfcfc; // Blanco hueso
+$error-red: #d9534f; // Para alertas o campos fallidos
+
+//* Colores de texto
+$text-dark: #333;
+$text-light: #fff;
+$text-muted: #666;
+
+//* Imágenes
+$logo-image: url("../dist/img/Escom/EscomLB.png");
+$header-image: url("../dist/img/Escom/header.jpg");

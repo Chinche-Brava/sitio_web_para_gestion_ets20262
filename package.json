@@ -1,10 +1,10 @@
 {
-    "name": "web",
+    "name": "src",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "sass --watch scss:dist/css"
+        "sass": "sass --watch SCSS:CSS"
     },
     "keywords": [],
     "author": "",

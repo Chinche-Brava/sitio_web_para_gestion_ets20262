@@ -1,0 +1,401 @@
+@use "variables" as *;
+@use "media" as *;
+//? npm run sass
+.header-custom {
+    background-color: #6a1b32 !important;
+    color: white !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+// Variables de marca
+$guinda-ipn: #6a1b32;
+$gris-legal: #b6b5b5c4;
+$blanco: #ffffff;
+$texto-suave: rgba(255, 255, 255, 0.7);
+
+#footer-institucional {
+    background-color: $guinda-ipn;
+    color: $blanco;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    .logo-gobierno {
+        width: 100%;
+        max-width: 180px;
+        height: auto;
+        object-fit: contain;
+        filter: brightness(0) invert(1); // Hace el logo blanco
+    }
+
+    h6 {
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+    }
+
+    .nav-link {
+        color: $texto-suave !important;
+        font-size: 0.875rem;
+        &:hover {
+            color: $blanco !important;
+        }
+    }
+
+    #redes-sociales {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+
+        i {
+            font-size: 1.5rem;
+            color: $blanco;
+        }
+    }
+}
+
+#footer-legal {
+    background-color: $gris-legal;
+    color: #333;
+    padding: 1.5rem 0;
+
+    .logo-educacion {
+        width: 100%;
+        max-width: 150px;
+        height: auto;
+    }
+
+    .contenido-legal {
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+        padding-left: 1.5rem;
+
+        .titulo-ipn {
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .direccion-ipn {
+            font-size: 0.75rem;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .derechos-autor {
+            font-size: 0.7rem;
+            font-style: italic;
+            color: #666;
+            line-height: 1.3;
+        }
+    }
+}
+
+// Definimos una variable por si luego quieres ajustar el tamaño de todas a la vez
+$ancho-logo-grande: 250px; // Antes tenías 180px, subimos a 250px para que destaque
+
+.img-institucional {
+    width: 100%;
+    max-width: $ancho-logo-grande; // Aquí controlas el tamaño
+    height: auto;
+    object-fit: contain;
+
+    // El filtro para que se vea blanco sobre el guinda #6a1b32
+    filter: brightness(0) invert(1);
+
+    // Opcional: un pequeño efecto al pasar el mouse si es un link
+    transition: transform 0.3s ease;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+// Variables institucionales
+$guinda-ipn: #6a1b32;
+$blanco: #ffffff;
+
+// Creamos una clase reutilizable
+.bg-institucional {
+    background-color: $guinda-ipn;
+    color: $blanco;
+
+    // Esto asegura que los enlaces dentro de este fondo también se vean bien
+    a {
+        color: rgba($blanco, 0.8);
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $blanco;
+            text-decoration: underline;
+        }
+    }
+}
+
+// Opcional: Si lo quieres como ID específico para el footer
+#footer-principal {
+    @extend .bg-institucional; // Hereda todo lo anterior
+    padding: 3rem 0;
+}
+
+/* Variables */
+$dorado-ipn: #bc955c;
+$gris-legal: #b6b5b5c4;
+
+/* Estilos para el Footer Legal que ya tienes en el HTML */
+#footer-legal {
+    background-color: $gris-legal;
+    color: #333;
+    padding: 1.5rem 0;
+
+    .logo-educacion {
+        width: 100%;
+        max-width: 150px;
+        height: auto;
+    }
+
+    .contenido-legal {
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+        padding-left: 1.5rem;
+
+        .titulo-ipn {
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .direccion-ipn {
+            font-size: 0.75rem;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .derechos-autor {
+            font-size: 0.7rem;
+            font-style: italic;
+            color: #666;
+            line-height: 1.3;
+        }
+    }
+}
+
+/* Estilo para el Navbar (para que no uses tanto style en linea) */
+.nav-institucional {
+    background-color: $guinda-ipn;
+    .nav-link {
+        color: white;
+        &:hover {
+            color: $dorado-ipn;
+        }
+    }
+    .link-activo {
+        color: $dorado-ipn !important;
+    }
+}
+
+.arrow-icon {
+    transition: transform 0.3s ease;
+    &.rotate-icon {
+        transform: rotate(180deg);
+    }
+}
+
+// Contenedor principal con separación controlada
+.subject-list {
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; // Margen entre materias para que no estén pegadas ni muy separadas
+}
+
+.subject-item {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    border: none !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    // Estado HOVER (Cuando el mouse está encima)
+    &:hover {
+        transform: translateX(10px) scale(1.02); // Desplazamiento a la derecha y crece
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+
+        // La línea que aparece a la izquierda
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background-color: #bc955c; // Tu color específico
+            z-index: 5;
+        }
+    }
+}
+
+// Estructura Interna: Logo --- Materia --- Abreviación
+.subject-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: white;
+    width: 100%;
+
+    .subject-icon {
+        flex: 0 0 40px; // Tamaño fijo para el logo
+        font-size: 1.1rem;
+    }
+
+    .subject-name {
+        flex: 1; // La materia crece y empuja lo demás
+        font-family: "Titillium Web", sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+    .subject-tag {
+        flex: 0 0 auto; // La abreviación se queda al final
+        font-size: 0.8rem;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 4px 12px;
+        border-radius: 4px;
+        margin-right: 10px;
+    }
+
+    .arrow-icon {
+        flex: 0 0 20px;
+    }
+}
+
+// Tus colores institucionales aplicados al fondo
+.isc-2020 {
+    background-color: #393d7e !important;
+}
+.isc-2009 {
+    background-color: #5c62c5 !important;
+}
+.ia-color {
+    background-color: #6dc3bb !important;
+}
+.lcd-color {
+    background-color: #283cce !important;
+}
+.isisa-color {
+    background-color: #f2aebb !important;
+    color: #333 !important;
+}
+
+//*para el log in
+
+// Variables
+$escom-blue: #393d7e;
+$escom-gold: #bc955c;
+$bg-light: #eef0f8;
+
+.login-page-bg {
+    background-color: $bg-light;
+    font-family: "Titillium Web", sans-serif;
+}
+
+.escom-login-wrapper {
+    background: white;
+    border-radius: 20px;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+// Estilos del Panel Izquierdo
+.escom-panel-left {
+    position: relative; // Esto ya lo tienes en el HTML, pero es vital
+    overflow: hidden;
+
+    .escom-bg-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Si la imagen "letrasEscom" tiene el texto arriba o abajo, 
+       puedes jugar con esto para que no se corte lo importante */
+        object-position: center;
+    }
+
+    .escom-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* Bajamos de 0.4/0.8 a 0.2/0.5 para que sea más transparente */
+        z-index: 1;
+    }
+
+    // Asegura que los logos y el texto queden por encima de la capa azul
+    .escom-logos,
+    .escom-panel-caption {
+        z-index: 2;
+    }
+}
+// Estilos del Formulario
+.brand-line {
+    width: 50px;
+    height: 5px;
+    background-color: $escom-gold;
+    border-radius: 10px;
+}
+
+.escom-input-group {
+    .input-group-text,
+    .form-control {
+        padding: 12px;
+        border-color: #e0e0e0;
+
+        &:focus {
+            box-shadow: none;
+            border-color: $escom-blue;
+        }
+    }
+}
+
+.escom-btn {
+    background-color: $escom-blue;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: darken($escom-blue, 10%);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba($escom-blue, 0.3);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+.escom-help-link {
+    color: $escom-gold;
+    transition: color 0.2s;
+}
+
+// Ajustes responsivos adicionales
+@media (max-width: 991px) {
+    .escom-login-wrapper {
+        border-radius: 15px;
+        max-width: 450px;
+    }
+}
+
+// Aseguramos que el wrapper de los dos paneles tenga la misma altura
+.escom-login-wrapper {
+    display: flex;
+    align-items: stretch; // Esto hace que ambos paneles midan lo mismo
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.escom-panel-right {
+    /* Si el formulario es muy largo, permite scroll interno en lugar de estirar todo el login */
+    overflow-y: auto;
+    padding: 2rem !important;
+}

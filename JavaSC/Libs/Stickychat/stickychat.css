@@ -1,0 +1,80 @@
+/* jquery.stickychat.css */
+:root {
+    --sc-z-index: 9999;
+    --sc-bubble-bg: rgba(255, 255, 255, 0.95);
+    --sc-bubble-text: #333333;
+    --sc-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.sc-container {
+    position: fixed;
+    bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: var(--sc-z-index);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Positioning */
+.sc-container.sc-right { right: 25px; flex-direction: row; }
+.sc-container.sc-left { left: 25px; flex-direction: row-reverse; }
+
+/* Tooltip / Chat Bubble */
+.sc-bubble {
+    background: var(--sc-bubble-bg);
+    color: var(--sc-bubble-text);
+    padding: 10px 18px;
+    border-radius: 20px;
+    box-shadow: var(--sc-shadow);
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0;
+    pointer-events: none; /* Prevents blocking clicks when hidden */
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bouncy effect */
+}
+
+.sc-right .sc-bubble { transform: translateX(20px); }
+.sc-left .sc-bubble { transform: translateX(-20px); }
+
+/* Hover Triggers */
+.sc-container:hover .sc-bubble {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* WhatsApp Button */
+.sc-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--sc-shadow);
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.sc-button:hover {
+    transform: scale(1.08);
+}
+
+.sc-button svg {
+    width: 35px;
+    height: 35px;
+    fill: #ffffff;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .sc-container { bottom: 15px; }
+    .sc-container.sc-right { right: 15px; }
+    .sc-container.sc-left { left: 15px; }
+    
+    /* Hide bubble on small screens to save space, or keep it if you prefer */
+    .sc-bubble { display: none; }
+    
+    .sc-button { width: 50px; height: 50px; }
+    .sc-button svg { width: 28px; height: 28px; }
+}

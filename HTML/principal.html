@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ETS Management - ESCOM</title>
+
+        <!-- 1. Herramientas Externas (Bootstrap e Iconos) -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        />
+        <!-- FontAwesome: Lo necesitas para los iconos de código y flechas que usamos en la estructura -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+        <!-- 2. Tus Estilos Base (Compilados de SCSS) -->
+        <!-- Coloca aquí tu main.css que ya tiene las variables de color (ia-color, isc-2020, etc.) -->
+        <link rel="stylesheet" href="/ProyectoWeb/CSS/main.css" />
+        <link rel="stylesheet" href="../css/index.css" />
+
+        <!-- 3. Sprite de Bootstrap (Si lo sigues usando para el logo) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+            <symbol id="bootstrap" viewBox="0 0 118 94">
+                <title>Bootstrap</title>
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.49c6.733 0 11.715-5.893 11.492-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.205 5.893 100.223 0 93.49 0H24.51zM68.044 33.132c0 3.11-1.955 5.362-4.572 5.956v.223c3.603.744 5.98 3.14 5.98 6.87 0 4.757-3.716 7.82-9.77 7.82H48.824V25.375h10.496c5.782 0 8.724 2.7 8.724 7.757zM56.97 43.365h-4.26v7.29h4.555c3.14 0 4.87-1.414 4.87-3.716 0-2.378-1.73-3.574-5.165-3.574zm-.52-13.59h-3.74v6.697h3.667c3.065 0 4.72-1.266 4.72-3.42 0-2.08-1.507-3.277-4.647-3.277z"
+                />
+            </symbol>
+        </svg>
+    </head>
+    <body>
+        <!-- ? Header -->
+        <!-- *primera parte -->
+        <div class="b-example-divider"></div>
+        <nav class="py-0 border-bottom" style="background-color: #10312b">
+            <div class="container d-flex flex-wrap align-items-center">
+                <a href="https://www.ipn.mx/" class="d-flex align-items-center ms-0 mt-0 text-decoration-none me-1">
+                    <img
+                        src="/ProyectoWeb/IMG/Gobierno/gobierno.png"
+                        alt="Logo Gobierno"
+                        width="80"
+                        height="50"
+                        class="d-inline-block align-text-top"
+                        style="object-fit: contain"
+                    />
+                </a>
+                <ul class="nav me-auto">
+                    <li class="nav-item">
+                        <a
+                            href="/ProyectoWeb/HTML/principal.html"
+                            class="nav-link px-0 active fw-semibold"
+                            style="color: #bc955c"
+                            aria-current="page"
+                        >
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.ipn.mx/" class="nav-link px-2 text-white">IPN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            href="https://www.escom.ipn.mx/htmls/escomunidad/mapaSitio.php"
+                            class="nav-link px-2 text-white"
+                        >
+                            ESCOM
+                        </a>
+                    </li>
+                </ul>
+
+                <!--* Separador visual -->
+                <div style="width: 3px; height: 24px; background: rgba(255, 255, 255, 0.25); margin: 0 0.75rem"></div>
+
+                <ul class="nav align-items-center">
+                    <li class="nav-item">
+                        <a href="https://www.gob.mx/" class="nav-link px-2 text-white-50 small">Trámites</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.gob.mx/gobierno" class="nav-link px-2 text-white-50 small">Gobierno</a>
+                    </li>
+                    <li class="nav-item ms-0">
+                        <a
+                            href="/ProyectoWeb/Index.html"
+                            class="btn btn-sm fw-semibold px-3"
+                            style="background-color: #bc955c; color: #fff; border: none"
+                        >
+                            Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="b-example-divider" style="height: 5px; background-color: #bc955c; opacity: 0.8"></div>
+
+        <!--*segunda parte -->
+        <div class="b-example-divider"></div>
+        <header class="p-2 header-custom">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a
+                        href="/ProyectoWeb/HTML/principal.html"
+                        class="d-flex align-items-center ms-2 mt-2 text-decoration-none"
+                    >
+                        <img
+                            src="/ProyectoWeb/IMG/Escom/EscomLB.png"
+                            alt="Logo ESCOM"
+                            width="80"
+                            height="60"
+                            class="d-inline-block align-text-top"
+                            style="object-fit: contain"
+                        />
+                    </a>
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li><a href="/ProyectoWeb/HTML/principal.html" class="nav-link px-2 text-secondary">ETS</a></li>
+                        <li>
+                            <a href="https://www.ipn.mx/directorio-telefonico.html" class="nav-link px-2 text-white">
+                                directorio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.ipn.mx/correo-electronico.html" class="nav-link px-2 text-white">
+                                Correo
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.ipn.mx/calendario-academico.html" class="nav-link px-2 text-white">
+                                Calendario
+                            </a>
+                        </li>
+                        <li><a href="https://www.ipn.mx/buzon.html" class="nav-link px-2 text-white">Buzon</a></li>
+                    </ul>
+                    <ul
+                        class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 nav col-12 col-lg-auto justify-content-center mb-md-0"
+                        role="search"
+                    >
+                        <li><a href="https://www.gob.mx/" class="nav-link px-2 text-white">Tramites</a></li>
+                        <li><a href="https://www.gob.mx/gobierno" class="nav-link px-2 text-white">Gobierno</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="b-example-divider" style="height: 5px; background-color: #0f2854; opacity: 0.8"></div>
+
+        <!-- *Tercera parte -->
+        <div class="b-example-divider"></div>
+        <!-- Sección del Banner Completo -->
+        <div class="container-fluid p-0">
+            <div class="header-banner-container" style="width: 100%; overflow: hidden; line-height: 1">
+                <img
+                    src="/ProyectoWeb/IMG/Items/ff.png"
+                    alt="Banner Institucional ESCOM"
+                    style="width: 100%; height: 5%; max-height: 120px; object-fit: cover; display: block"
+                />
+            </div>
+        </div>
+
+        <!-- Divisor sutil opcional -->
+        <div class="b-example-divider" style="height: 5px; background-color: #0f2854; opacity: 0.8"></div>
+        <!-- *Cuarta parte -->
+        <div class="b-example-divider"></div>
+        <header class="py-3 mb-3 border-bottom" style="grid-template-columns: 1fr 2fr; background-color: white">
+            <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr">
+                <div class="dropdown">
+                    <a
+                        href="#"
+                        class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-body-emphasis text-decoration-none dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        aria-label="Bootstrap menu"
+                    >
+                        <svg class="bi me-2" width="40" height="32" aria-hidden="true">
+                            <use>
+                                <img src="/ProyectoWeb/IMG/Escom/Escom.png" alt="mdo" width="50" height="50" />
+                            </use>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu text-small shadow">
+                        <li>
+                            <a class="dropdown-item active" href="#" aria-current="page">Luis</a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://www.escom.ipn.mx/">Escom</a></li>
+                        <li>
+                            <a
+                                class="dropdown-item"
+                                href="https://www.saes.escom.ipn.mx/?AspxAutoDetectCookieSupport=1"
+                            >
+                                Saes
+                            </a>
+                        </li>
+                        <li><a class="dropdown-item" href="https://www.gob.mx/segob/en">English</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="/ProyectoWeb/HTML/principal.html">Ets</a></li>
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center">
+                    <form class="w-100 me-3" role="search">
+                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" />
+                    </form>
+                    <div class="flex-shrink-0 dropdown">
+                        <a
+                            href="#"
+                            class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            <img
+                                src="/ProyectoWeb/IMG/IPN/LIPN.jpg"
+                                alt="mdo"
+                                width="50"
+                                height="50"
+                                class="rounded-circle"
+                            />
+                        </a>
+                        <ul class="dropdown-menu text-small shadow">
+                            <li>
+                                <a class="dropdown-item" href="#">Carrera</a>
+                                <ul class="dropdown-menu text-small shadow">
+                                    <li><a class="dropdown-item" href="#">ISC</a></li>
+                                    <li><a class="dropdown-item" href="#">LCD</a></li>
+                                    <li><a class="dropdown-item" href="#">IA</a></li>
+                                    <li><a class="dropdown-item" href="#">ISISA</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Semestre</a></li>
+                            <li><a class="dropdown-item" href="#">Mas comunes</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li>
+                                <a href="/ProyectoWeb/HTML/principal.html" class="nav-link px-2 text-secondary">ETS</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- body -->
+        <!-- title  -->
+        <div class="container my-4">
+            <div class="text-center">
+                <h2 class="fw-bold text-uppercase" style="color: #0f2854; font-size: 2.5rem">
+                    ETS Especial / Sem. 2026-1
+                </h2>
+                <h5 class="text-muted fw-light">10 de febrero de 2026</h5>
+                <hr class="mx-auto" style="width: 10%; border: 2px solid #0f2854; opacity: 1" />
+            </div>
+        </div>
+        <!-- ?CUERPO -->
+
+        <!-- *SECTION 1 -->
+        <!-- Contenido Principal -->
+        <main class="container my-5">
+            <!-- Filtros Rápidos -->
+            <div class="row mb-4 justify-content-center">
+                <div class="col-auto">
+                    <div class="btn-group shadow-sm" role="group" aria-label="Filtros de carrera">
+                        <button type="button" class="btn btn-outline-primary active" id="filter-all">Todas</button>
+                        <button type="button" class="btn btn-outline-primary" id="filter-isc">ISC</button>
+                        <button type="button" class="btn btn-outline-primary" id="filter-ia">IA</button>
+                        <button type="button" class="btn btn-outline-primary" id="filter-lcd">LCD</button>
+                        <button type="button" class="btn btn-outline-primary" id="filter-isisa">ISISA</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENEDOR MAESTRO DE MATERIAS -->
+            <!-- El JavaScript (index.js) usará este ID para inyectar los <article> ordenados alfabéticamente -->
+            <section id="contenedor-materias" class="subject-list">
+                <div class="text-center py-5">
+                    <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem">
+                        <span class="visually-hidden">Cargando...</span>
+                    </div>
+                    <p class="mt-3 text-secondary fw-semibold">Cargando plan de estudios y ordenando materias...</p>
+                </div>
+            </section>
+        </main>
+        <!-- *SECTION 2 -->
+
+        <!-- *SECTION 3 -->
+
+        <!-- ? FOOTER-->
+
+        <!--* FOOTER 1 -->
+        <div class="b-example-divider"></div>
+        <!-- Footer Legal Gris -->
+        <footer id="footer-legal">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-2 text-center mb-3 mb-md-0">
+                        <img src="/ProyectoWeb/IMG/Gobierno/educacion.png" alt="Educación" class="logo-educacion" />
+                    </div>
+                    <div class="col-md-10">
+                        <div class="contenido-legal">
+                            <p class="titulo-ipn">INSTITUTO POLITÉCNICO NACIONAL</p>
+                            <p class="direccion-ipn">
+                                Zacatenco, Alcaldía Gustavo A. Madero, C.P. 07738, Ciudad de México. D.R. Instituto
+                                Politécnico Nacional (IPN). Av. Luis Enrique Erro S/N, Unidad Profesional Adolfo López
+                                Mateos,
+                                <strong>Conmutador:</strong>
+                                55 57 29 60 00 / 55 57 29 63 00.
+                            </p>
+                            <p class="derechos-autor">
+                                Esta página es una obra intelectual protegida por la Ley Federal del Derecho de Autor...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--* FOOTER 2 -->
+        <div class="b-example-divider"></div>
+        <footer class="py-5 bg-institucional">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
+                    <!-- Columna 1: Logo Grande y Copyright -->
+                    <div class="col mb-5">
+                        <a href="/ProyectoWeb/HTML/principal.html" class="d-flex align-items-center mb-3">
+                            <!-- Solo añadimos la clase que definimos en el SCSS -->
+                            <img
+                                src="/ProyectoWeb/IMG/Gobierno/gobierno.png"
+                                alt="Logo Gobierno"
+                                class="img-institucional"
+                            />
+                        </a>
+                    </div>
+
+                    <!--  Enlaces -->
+                    <div class="col mb-4">
+                        <h6 class="fw-bold text-uppercase mb-3">Enlaces</h6>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2">
+                                <a href="https://participa.gob.mx/" class="nav-link p-0 text-white-50 small">
+                                    Participa
+                                </a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a href="http://www.ordenjuridico.gob.mx/" class="nav-link p-0 text-white-50 small">
+                                    Marco Jurídico
+                                </a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a
+                                    href="https://consultapublicamx.inai.org.mx/vut-web/"
+                                    class="nav-link p-0 text-white-50 small"
+                                >
+                                    Plataforma Nacional de Transparencia
+                                </a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a href="https://sidec.funcionpublica.gob.mx/" class="nav-link p-0 text-white-50 small">
+                                    Alerta y Denuncia
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--  Alerta -->
+                    <div class="col mb-4">
+                        <h6 class="fw-bold text-uppercase mb-3">¿Qué es gob.mx?</h6>
+                        <p class="small text-white-50">
+                            Es el portal único de trámites, información y participación ciudadana.
+                            <a href="https://www.gob.mx/que-es-gobmx" class="text-white fw-bold">Leer más</a>
+                        </p>
+                    </div>
+
+                    <!--  Legal -->
+                    <div class="col mb-4">
+                        <h6 class="fw-bold text-uppercase mb-3">Legal</h6>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2">
+                                <a href="https://www.datos.gob.mx/" class="nav-link p-0 text-white-50 small">
+                                    Portal de datos abiertos
+                                </a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a href="https://www.gob.mx/accesibilidad" class="nav-link p-0 text-white-50 small">
+                                    Declaración de accesibilidad
+                                </a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a href="https://www.gob.mx/terminos" class="nav-link p-0 text-white-50 small">
+                                    Términos y Condiciones
+                                </a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a
+                                    href="https://www.gob.mx/buengobierno/acciones-y-programas/quejas-o-denuncias-contra-servidores-publicos-federales"
+                                    class="nav-link p-0 text-white-50 small"
+                                >
+                                    Denuncia contra servidores públicos
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Columna 5: Redes Sociales (A un lado / Derecha) -->
+                    <div class="col mb-4 d-flex flex-column align-items-md-end">
+                        <h6 class="fw-bold text-uppercase mb-3">Síguenos en</h6>
+                        <div class="d-flex">
+                            <a class="text-white me-3" href="#"><i class="bi bi-facebook fs-4"></i></a>
+                            <a class="text-white me-3" href="#"><i class="bi bi-instagram fs-4"></i></a>
+                            <a class="text-white" href="#"><i class="bi bi-twitter-x fs-4"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--* FOOTER 3 -->
+        <div class="b-example-divider"></div>
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <div class="col-md-5 d-flex align-items-center">
+                    <!-- Logo de ESCOM -->
+                    <a
+                        href="https://www.escom.ipn.mx/"
+                        class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"
+                    >
+                        <img src="/ProyectoWeb/IMG/ESCOM/escom.png" width="35" height="35" alt="ESCOM" />
+                    </a>
+                    <!-- Texto de Copyright y Autor -->
+                    <div class="d-flex flex-column">
+                        <span class="text-body-secondary">© 2026 Copyright UTEYCV - ESCOM</span>
+                        <small class="text-body-secondary" style="font-size: 0.8rem">
+                            Hecho por Luis Manuel Cortes Najera
+                        </small>
+                    </div>
+                </div>
+
+                <!-- Redes Sociales al otro lado -->
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="ms-3">
+                        <a class="text-body-secondary" href="https://www.facebook.com/escomipnmx" aria-label="Facebook">
+                            <i class="bi bi-facebook" style="font-size: 1.5rem"></i>
+                        </a>
+                    </li>
+                    <li class="ms-3">
+                        <a
+                            class="text-body-secondary"
+                            href="https://www.instagram.com/escom_ipn_oficial/"
+                            aria-label="Instagram"
+                        >
+                            <i class="bi bi-instagram" style="font-size: 1.5rem"></i>
+                        </a>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+
+        <!-- Scripts -->
+
+        <!-- 1. Librerías Base -->
+        <script src="../JavaSC/Libs/Jquery/jquery-4.0.min.js"></script>
+
+        <!-- 2. Framework Bootstrap -->
+        <script src="../bootstrap-5.3.8/js/bootstrap.bundle.min.js"></script>
+
+        <!-- 3. TUS DATOS (El archivo que contiene la variable DATA_ESCOM) -->
+        <!-- Lo ponemos aquí para que index.js pueda leer la variable al cargar -->
+        <script src="../JavaSC/materias.js"></script>
+
+        <!-- 4. Tu Lógica Personalizada -->
+        <script src="../JavaSC/index.js"></script>
+    </body>
+</html>

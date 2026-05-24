@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ETS Management - Proyecto Web</title>
+
+        <!-- 1. Bootstrap 5.3 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+        <!-- 2. Bootstrap Icons e FontAwesome (Necesario para tus iconos de carrera) -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+        <!-- 3. Tu CSS compilado (Al final para que mande sobre Bootstrap) -->
+        <link rel="stylesheet" href="/ProyectoWeb/CSS/main.css" />
+
+        <style>
+            .btn-guinda {
+                background-color: #6a1b32;
+                color: white !important;
+                border-radius: 20px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                border: none;
+            }
+            .btn-guinda:hover {
+                background-color: #4d1324;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+        </style>
+    </head>
+    <body>
+        <!-- NAVBAR SUPERIOR -->
+        <div class="b-example-divider"></div>
+        <nav class="py-1 border-bottom" style="background-color: #6a1b32; font-size: 1rem">
+            <div class="container d-flex flex-wrap align-items-center">
+                <a href="https://www.ipn.mx/" class="d-flex align-items-center ms-2 mt-2 text-decoration-none me-3">
+                    <img
+                        src="/ProyectoWeb/IMG/Gobierno/gobierno.png"
+                        alt="Logo Gobierno"
+                        width="80"
+                        height="80"
+                        class="d-inline-block align-text-top"
+                        style="object-fit: contain"
+                    />
+                </a>
+                <ul class="nav me-auto">
+                    <li class="nav-item">
+                        <a
+                            href="/ProyectoWeb/HTML/principal.html"
+                            class="nav-link px-2 active fw-semibold"
+                            style="color: #bc955c"
+                            aria-current="page"
+                        >
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.ipn.mx/" class="nav-link px-2 text-white">IPN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            href="https://www.escom.ipn.mx/htmls/escomunidad/mapaSitio.php"
+                            class="nav-link px-2 text-white"
+                        >
+                            ESCOM
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Separador visual -->
+                <div style="width: 1px; height: 24px; background: rgba(255, 255, 255, 0.25); margin: 0 0.75rem"></div>
+
+                <ul class="nav align-items-center">
+                    <li class="nav-item">
+                        <a href="https://www.gob.mx/" class="nav-link px-2 text-white-50 small">Trámites</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.gob.mx/gobierno" class="nav-link px-2 text-white-50 small">Gobierno</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a
+                            href="/ProyectoWeb/Index.html"
+                            class="btn btn-sm fw-semibold px-3"
+                            style="background-color: #bc955c; color: #fff; border: none"
+                        >
+                            Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- ENCABEZADO PRINCIPAL (ETS) -->
+
+        <!-- CONTENIDO PRINCIPAL (Aquí iría tu tabla o formulario) -->
+
+        <!-- ? Cuerpo -->
+        <!--* Section 1 -->
+        <main class="container-fluid login-page-bg">
+            <div class="row min-vh-80 align-items-center justify-content-center p-3">
+                <div
+                    class="col-12 col-lg-10 col-xl-8 escom-login-wrapper shadow-lg p-0 d-flex flex-column flex-lg-row"
+                    style="max-height: 600px; overflow: hidden"
+                >
+                    <!-- Panel izquierdo — Imagen y Logos (Visible solo en LG hacia arriba) -->
+
+                    <!-- Panel izquierdo corregido -->
+                    <div class="escom-panel-left d-none d-lg-flex col-lg-5 position-relative p-0 overflow-hidden">
+                        <img class="escom-bg-img" src="/ProyectoWeb/IMG/Items/letrasEscom.jpeg" alt="Edificio ESCOM" />
+
+                        <!-- El overlay va encima -->
+                        <div class="escom-overlay"></div>
+
+                        <!-- Logos y Texto se mantienen igual -->
+
+                        <div class="escom-logos d-flex gap-3 position-absolute top-10 start-10 p-4">
+                            <img src="/ProyectoWeb/IMG/IPN/IPN.png" alt="Logo IPN" height="60" />
+                            <img src="/ProyectoWeb/IMG/Escom/Escom.png" alt="Logo ESCOM" height="60" />
+                        </div>
+
+                        <div class="escom-panel-caption position-absolute bottom-0 start-0 p-4 text-white">
+                            <h1 class="display-5 fw-bold">ESCOM · IPN</h1>
+                            <p class="lead">ESCUELA SUPERIOR DE CÓMPUTO</p>
+                        </div>
+                    </div>
+
+                    <!-- Panel derecho — Formulario -->
+                    <div
+                        class="escom-panel-right col-12 col-lg-6 bg-white d-flex flex-column justify-content-between p-4 p-md-5"
+                    >
+                        <div class="escom-form-wrap my-auto">
+                            <div class="brand-line mb-4"></div>
+                            <h2 class="fw-bold mb-1" style="color: #393d7e">BIENVENIDO</h2>
+                            <p class="text-muted mb-4">Ingresa tus credenciales para acceder al sistema de ETS</p>
+
+                            <form action="procesar_login.php" method="POST">
+                                <!-- Campo Boleta -->
+                                <div class="mb-3">
+                                    <label for="boleta" class="form-label small fw-bold">NÚMERO DE BOLETA</label>
+                                    <div class="input-group escom-input-group">
+                                        <span class="input-group-text bg-light border-end-0">
+                                            <i class="fa-solid fa-list-ol"></i>
+                                        </span>
+                                        <input
+                                            type="text"
+                                            name="boleta"
+                                            id="boleta"
+                                            class="form-control bg-light border-start-0"
+                                            placeholder="202660XXXX"
+                                            required
+                                        />
+                                    </div>
+                                </div>
+
+                                <!-- Campo Password -->
+                                <div class="mb-4">
+                                    <label for="password" class="form-label small fw-bold">CONTRASEÑA</label>
+                                    <div class="input-group escom-input-group">
+                                        <span class="input-group-text bg-light border-end-0">
+                                            <i class="fa-solid fa-lock text-muted"></i>
+                                        </span>
+                                        <input
+                                            type="password"
+                                            name="password"
+                                            id="password"
+                                            class="form-control bg-light border-start-0"
+                                            placeholder="••••••••"
+                                            required
+                                        />
+                                    </div>
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    class="btn escom-btn w-100 py-2 fw-bold text-white shadow-sm"
+                                    style="background-color: #393d7e !important; border: none"
+                                >
+                                    INICIAR SESIÓN
+                                </button>
+                            </form>
+
+                            <div class="text-center mt-4">
+                                <a
+                                    href="https://www.escom.ipn.mx/SSEIS/gestionescolar/"
+                                    class="escom-help-link small text-decoration-none fw-bold"
+                                >
+                                    ¿Problemas con tu acceso? Contacta a Gestión Escolar
+                                </a>
+                            </div>
+                        </div>
+
+                        <p class="text-center text-muted small mt-4 mb-0">
+                            &copy; 2026 Escuela Superior de Cómputo — IPN
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- ? FOOTER-->
+
+        <!--* FOOTER 1 -->
+        <div class="b-example-divider"></div>
+        <!-- Footer Legal Gris -->
+        <footer id="footer-legal">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-2 text-center mb-3 mb-md-0">
+                        <img src="/ProyectoWeb/IMG/Gobierno/educacion.png" alt="Educación" class="logo-educacion" />
+                    </div>
+                    <div class="col-md-10">
+                        <div class="contenido-legal">
+                            <p class="titulo-ipn">INSTITUTO POLITÉCNICO NACIONAL</p>
+                            <p class="direccion-ipn">
+                                D.R. Instituto Politécnico Nacional (IPN). Av. Luis Enrique Erro S/N, Unidad Profesional
+                                Adolfo López Mateos, Zacatenco, Alcaldía Gustavo A. Madero, C.P. 07738, Ciudad de
+                                México.
+                                <strong>Conmutador:</strong>
+                                55 57 29 60 00 / 55 57 29 63 00.
+                            </p>
+                            <p class="derechos-autor">
+                                Esta página es una obra intelectual protegida por la Ley Federal del Derecho de Autor...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- * FOOTER 2 -->
+        <div class="b-example-divider"></div>
+        <footer id="footer-principal" class="py-5 bg-institucional">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
+                    <!-- Columna 1: Logo Grande y Copyright -->
+                    <div class="col mb-5">
+                        <a href="#" class="d-flex align-items-center mb-3">
+                            <!-- Solo añadimos la clase que definimos en el SCSS -->
+                            <img
+                                src="/ProyectoWeb/IMG/Gobierno/gobierno.png"
+                                alt="Logo Gobierno"
+                                class="img-institucional"
+                            />
+                        </a>
+                    </div>
+
+                    <!--  Enlaces -->
+                    <div class="col mb-4">
+                        <h6 class="fw-bold text-uppercase mb-3">Enlaces</h6>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2">
+                                <a href="https://participa.gob.mx/" class="nav-link p-0 text-white-50 small">
+                                    Participa
+                                </a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a href="http://www.ordenjuridico.gob.mx/" class="nav-link p-0 text-white-50 small">
+                                    Marco Jurídico
+                                </a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a
+                                    href="https://consultapublicamx.inai.org.mx/vut-web/"
+                                    class="nav-link p-0 text-white-50 small"
+                                >
+                                    Plataforma Nacional de Transparencia
+                                </a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a href="https://sidec.funcionpublica.gob.mx/" class="nav-link p-0 text-white-50 small">
+                                    Alerta y Denuncia
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--  Alerta -->
+                    <div class="col mb-4">
+                        <h6 class="fw-bold text-uppercase mb-3">¿Qué es gob.mx?</h6>
+                        <p class="small text-white-50">
+                            Es el portal único de trámites, información y participación ciudadana.
+                            <a href="https://www.gob.mx/que-es-gobmx" class="text-white fw-bold">Leer más</a>
+                        </p>
+                    </div>
+
+                    <!--  Legal -->
+                    <div class="col mb-4">
+                        <h6 class="fw-bold text-uppercase mb-3">Legal</h6>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2">
+                                <a href="https://www.datos.gob.mx/" class="nav-link p-0 text-white-50 small">
+                                    Portal de datos abiertos
+                                </a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a href="https://www.gob.mx/accesibilidad" class="nav-link p-0 text-white-50 small">
+                                    Declaración de accesibilidad
+                                </a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a href="https://www.gob.mx/terminos" class="nav-link p-0 text-white-50 small">
+                                    Términos y Condiciones
+                                </a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a
+                                    href="https://www.gob.mx/buengobierno/acciones-y-programas/quejas-o-denuncias-contra-servidores-publicos-federales"
+                                    class="nav-link p-0 text-white-50 small"
+                                >
+                                    Denuncia contra servidores públicos
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Columna 5: Redes Sociales (A un lado / Derecha) -->
+                    <div class="col mb-4 d-flex flex-column align-items-md-end">
+                        <h6 class="fw-bold text-uppercase mb-3">Síguenos en</h6>
+                        <div class="d-flex">
+                            <a class="text-white me-3" href="#"><i class="bi bi-facebook fs-4"></i></a>
+                            <a class="text-white me-3" href="#"><i class="bi bi-instagram fs-4"></i></a>
+                            <a class="text-white" href="#"><i class="bi bi-twitter-x fs-4"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- SCRIPTS -->
+
+        <!-- 1. Librerías base -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- 2. TUS DATOS (IMPORTANTE: Aquí debe ir el archivo donde está DATA_ESCOM) -->
+        <!-- Si no pones esta línea, index.js no sabrá qué materias mostrar -->
+        <script src="/ProyectoWeb/JavaSC/materias.js"></script>
+
+        <!-- 3. Lógica de la página (El que usa los datos) -->
+        <script src="/ProyectoWeb/JavaSC/index.js"></script>
+    </body>
+</html>
