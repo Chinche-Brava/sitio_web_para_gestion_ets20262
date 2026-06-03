@@ -16,9 +16,20 @@
 
         <!-- 2. Tus Estilos Base (Compilados de SCSS) -->
         <!-- Coloca aquí tu main.css que ya tiene las variables de color (ia-color, isc-2020, etc.) -->
-        <link rel="stylesheet" href="/ProyectoWeb/CSS/main.css" />
-        <link rel="stylesheet" href="../css/index.css" />
+        <link rel="stylesheet" href="../CSS/main.css" />
+        
+        <!-- 1. Librerías Base -->
+        <script src="../JavaSC/Libs/Jquery/jquery-4.0.min.js"></script>
 
+        <!-- 2. Framework Bootstrap -->
+        <script src="../bootstrap-5.3.8/js/bootstrap.bundle.min.js"></script>
+
+        <!-- 3. TUS DATOS (El archivo que contiene la variable DATA_ESCOM) -->
+        <!-- Lo ponemos aquí para que index.js pueda leer la variable al cargar -->
+        <script src="../JavaSC/materias.js"></script>
+
+        <!-- 4. Tu Lógica Personalizada -->
+        <script src="../JavaSC/index.js"></script>
         <!-- 3. Sprite de Bootstrap (Si lo sigues usando para el logo) -->
         <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
             <symbol id="bootstrap" viewBox="0 0 118 94">
@@ -39,7 +50,7 @@
             <div class="container d-flex flex-wrap align-items-center">
                 <a href="https://www.ipn.mx/" class="d-flex align-items-center ms-0 mt-0 text-decoration-none me-1">
                     <img
-                        src="/ProyectoWeb/IMG/Gobierno/gobierno.png"
+                        src="../IMG/Gobierno/gobierno.png"
                         alt="Logo Gobierno"
                         width="80"
                         height="50"
@@ -50,7 +61,7 @@
                 <ul class="nav me-auto">
                     <li class="nav-item">
                         <a
-                            href="/ProyectoWeb/HTML/principal.html"
+                            href="../HTML/principal.html"
                             class="nav-link px-0 active fw-semibold"
                             style="color: #bc955c"
                             aria-current="page"
@@ -83,7 +94,7 @@
                     </li>
                     <li class="nav-item ms-0">
                         <a
-                            href="/ProyectoWeb/Index.html"
+                            href="../index.html"
                             class="btn btn-sm fw-semibold px-3"
                             style="background-color: #bc955c; color: #fff; border: none"
                         >
@@ -101,11 +112,11 @@
             <div class="container">
                 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                     <a
-                        href="/ProyectoWeb/HTML/principal.html"
+                        href="../HTML/principal.html"
                         class="d-flex align-items-center ms-2 mt-2 text-decoration-none"
                     >
                         <img
-                            src="/ProyectoWeb/IMG/Escom/EscomLB.png"
+                            src="../IMG/Escom/EscomLB.png"
                             alt="Logo ESCOM"
                             width="80"
                             height="60"
@@ -114,7 +125,7 @@
                         />
                     </a>
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                        <li><a href="/ProyectoWeb/HTML/principal.html" class="nav-link px-2 text-secondary">ETS</a></li>
+                        <li><a href="../HTML/principal.html" class="nav-link px-2 text-secondary">ETS</a></li>
                         <li>
                             <a href="https://www.ipn.mx/directorio-telefonico.html" class="nav-link px-2 text-white">
                                 directorio
@@ -150,7 +161,7 @@
         <div class="container-fluid p-0">
             <div class="header-banner-container" style="width: 100%; overflow: hidden; line-height: 1">
                 <img
-                    src="/ProyectoWeb/IMG/Items/ff.png"
+                    src="../IMG/Items/ff.png"
                     alt="Banner Institucional ESCOM"
                     style="width: 100%; height: 5%; max-height: 120px; object-fit: cover; display: block"
                 />
@@ -173,7 +184,7 @@
                     >
                         <svg class="bi me-2" width="40" height="32" aria-hidden="true">
                             <use>
-                                <img src="/ProyectoWeb/IMG/Escom/Escom.png" alt="mdo" width="50" height="50" />
+                                <img src="../IMG/Escom/Escom.png" alt="mdo" width="50" height="50" />
                             </use>
                         </svg>
                     </a>
@@ -192,12 +203,12 @@
                         </li>
                         <li><a class="dropdown-item" href="https://www.gob.mx/segob/en">English</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="/ProyectoWeb/HTML/principal.html">Ets</a></li>
+                        <li><a class="dropdown-item" href="../HTML/principal.html">Ets</a></li>
                     </ul>
                 </div>
                 <div class="d-flex align-items-center">
                     <form class="w-100 me-3" role="search">
-                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" />
+                        <input type="search" class="form-control" id="filtro-texto" placeholder="Search..." aria-label="Search" />
                     </form>
                     <div class="flex-shrink-0 dropdown">
                         <a
@@ -207,7 +218,7 @@
                             aria-expanded="false"
                         >
                             <img
-                                src="/ProyectoWeb/IMG/IPN/LIPN.jpg"
+                                src="../IMG/IPN/LIPN.jpg"
                                 alt="mdo"
                                 width="50"
                                 height="50"
@@ -228,7 +239,7 @@
                             <li><a class="dropdown-item" href="#">Mas comunes</a></li>
                             <li><hr class="dropdown-divider" /></li>
                             <li>
-                                <a href="/ProyectoWeb/HTML/principal.html" class="nav-link px-2 text-secondary">ETS</a>
+                                <a href="../HTML/principal.html" class="nav-link px-2 text-secondary">ETS</a>
                             </li>
                         </ul>
                     </div>
@@ -258,7 +269,7 @@
                     <div class="btn-group shadow-sm" role="group" aria-label="Filtros de carrera">
                         <button type="button" class="btn btn-outline-primary active" id="filter-all">Todas</button>
                         <button type="button" class="btn btn-outline-primary" id="filter-isc">ISC</button>
-                        <button type="button" class="btn btn-outline-primary" id="filter-ia">IA</button>
+                        <button type="button" class="btn btn-outline-primary" id="filter-iia">IA</button>
                         <button type="button" class="btn btn-outline-primary" id="filter-lcd">LCD</button>
                         <button type="button" class="btn btn-outline-primary" id="filter-isisa">ISISA</button>
                     </div>
@@ -289,7 +300,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-2 text-center mb-3 mb-md-0">
-                        <img src="/ProyectoWeb/IMG/Gobierno/educacion.png" alt="Educación" class="logo-educacion" />
+                        <img src="../IMG/Gobierno/educacion.png" alt="Educación" class="logo-educacion" />
                     </div>
                     <div class="col-md-10">
                         <div class="contenido-legal">
@@ -316,10 +327,10 @@
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
                     <!-- Columna 1: Logo Grande y Copyright -->
                     <div class="col mb-5">
-                        <a href="/ProyectoWeb/HTML/principal.html" class="d-flex align-items-center mb-3">
+                        <a href="../HTML/principal.html" class="d-flex align-items-center mb-3">
                             <!-- Solo añadimos la clase que definimos en el SCSS -->
                             <img
-                                src="/ProyectoWeb/IMG/Gobierno/gobierno.png"
+                                src="../IMG/Gobierno/gobierno.png"
                                 alt="Logo Gobierno"
                                 class="img-institucional"
                             />
@@ -417,7 +428,7 @@
                         href="https://www.escom.ipn.mx/"
                         class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"
                     >
-                        <img src="/ProyectoWeb/IMG/ESCOM/escom.png" width="35" height="35" alt="ESCOM" />
+                        <img src="../IMG/ESCOM/escom.png" width="35" height="35" alt="ESCOM" />
                     </a>
                     <!-- Texto de Copyright y Autor -->
                     <div class="d-flex flex-column">
@@ -450,17 +461,6 @@
 
         <!-- Scripts -->
 
-        <!-- 1. Librerías Base -->
-        <script src="../JavaSC/Libs/Jquery/jquery-4.0.min.js"></script>
-
-        <!-- 2. Framework Bootstrap -->
-        <script src="../bootstrap-5.3.8/js/bootstrap.bundle.min.js"></script>
-
-        <!-- 3. TUS DATOS (El archivo que contiene la variable DATA_ESCOM) -->
-        <!-- Lo ponemos aquí para que index.js pueda leer la variable al cargar -->
-        <script src="../JavaSC/materias.js"></script>
-
-        <!-- 4. Tu Lógica Personalizada -->
-        <script src="../JavaSC/index.js"></script>
+        
     </body>
 </html>

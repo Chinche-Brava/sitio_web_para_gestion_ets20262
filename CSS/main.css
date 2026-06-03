@@ -224,16 +224,21 @@
   background-color: #5c62c5 !important;
 }
 
-.ia-color {
+.iia-2020 {
   background-color: #6dc3bb !important;
 }
 
-.lcd-color {
+.lcd-2020 {
   background-color: #283cce !important;
 }
 
-.isisa-color {
+.isisa-2009 {
   background-color: #f2aebb !important;
+  color: #333 !important;
+}
+
+.isisa-2006 {
+  background-color: #b93d54 !important;
   color: #333 !important;
 }
 

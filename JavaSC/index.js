@@ -1,36 +1,101 @@
-$(document).ready(function () {
+$(document).ready(() => {
+    const API = '../php/ets.php';
+
+    let todosLosETS = [];
     // 1. Crear un arreglo vacío para juntar todas las materias
-    let todasLasMaterias = [];
+    cargarETS();
 
-    // 2. Recorrer el objeto global DATA_ESCOM (viniendo de datosMaterias.js)
-    // Usamos bucles para entrar a: Carrera -> Plan -> Semestre
-    for (let codCarrera in DATA_ESCOM.carreras) {
-        const carrera = DATA_ESCOM.carreras[codCarrera];
+    document.getElementById('filter-all').addEventListener('click', async () => {
+        await cargarETS();
+    })
 
-        for (let numPlan in carrera.planes) {
-            const plan = carrera.planes[numPlan];
+    document.getElementById('filtro-texto').addEventListener('input', () => {
+        filtrar('');
+    })
 
-            for (let numSemestre in plan.semestres) {
-                // Mapeamos cada materia para que guarde su propia info de carrera y plan
-                plan.semestres[numSemestre].forEach((materia) => {
-                    todasLasMaterias.push({
-                        ...materia,
-                        carrera_id: codCarrera,
-                        plan_id: numPlan,
-                        color_class: plan.color_class,
-                        semestre: numSemestre,
-                    });
-                });
+    document.getElementById('filter-isc').addEventListener('click', () => {
+        filtrar('isc');
+    })
+
+    document.getElementById('filter-iia').addEventListener('click', async () => {
+        filtrar('iia');
+    })
+
+    document.getElementById('filter-lcd').addEventListener('click', async () => {
+        filtrar('lcd');
+    })
+
+    document.getElementById('filter-isisa').addEventListener('click', async () => {
+        filtrar('isisa');
+    })
+
+
+    function credHeaders() {
+        return { 'Content-Type': 'application/json' };
+    }
+    
+    function apiURL(base, params = {}) {
+        //const u = document.getElementById('inp-user').value;
+        //const p = document.getElementById('inp-pass').value;
+        const u = 'alumno';
+        const p = 'alumno';
+        const q = new URLSearchParams({ user: u, pass: p, ...params });
+        
+        return `${base}?${q}`;
+    }
+    
+    // ── Cargar todos los ETS ──────────────────────────────────────────────────────
+    async function cargarETS() {
+        console.info('Conectando…');
+        try {
+            const res = await fetch(apiURL(API), { headers: credHeaders() });
+
+            if (!res.ok) {
+                // ya sabes que falló sin leer el body
+                console.error('HTTP Error:', res.status);
+                return;
             }
+
+            const json = await res.json(); // solo lees si todo está bien
+            if (!json.success) { 
+                console.error('Error: ' + json.message, 'error'); 
+                return; 
+            }
+            
+            todosLosETS = json.data;
+
+            console.info(todosLosETS);
+            console.info(json.total  + ' registros');
+            renderizarMaterias(todosLosETS);
+            //filtrar();
+            //document.getElementById('ts').textContent = 'Última carga: ' + new Date().toLocaleTimeString('es-MX');
+        } catch (e) {
+            console.error('Error de red: ' + e.message, 'error');
         }
     }
 
-    // 3. ORDENAR ALFABÉTICAMENTE por el nombre de la materia
-    todasLasMaterias.sort((a, b) => a.nombre.localeCompare(b.nombre));
+    function filtrar(carrera) {
+        const texto   = document.getElementById('filtro-texto').value.toLowerCase();
 
-    // 4. Llamar a la función para pintar las materias en el HTML
-    renderizarMaterias(todasLasMaterias);
+        const filtrados = todosLosETS.filter(e => {
+            const matchCarrera = !carrera || e.carrera.toLowerCase() === carrera;
+            const matchTexto   = !texto   ||
+            e.materia.toLowerCase().includes(texto) ||
+            e.salon.toLowerCase().includes(texto)   ||
+            e.coordinador.toLowerCase().includes(texto) ||
+            e.nota.toLowerCase().includes(texto);
+            return matchCarrera && matchTexto;
+        });
+
+        renderizarMaterias(filtrados);
+    }
 });
+
+
+
+
+
+
 
 function obtenerIconoPorCarrera(carrera, plan) {
     const id = carrera.toLowerCase();
@@ -39,7 +104,7 @@ function obtenerIconoPorCarrera(carrera, plan) {
     // Mapeo exacto según tu lista
     if (id === "isc" && p === "2009") return "fa-solid fa-laptop-code";
     if (id === "isc" && p === "2020") return "fa-solid fa-code";
-    if (id === "ia") return "fa-solid fa-network-wired";
+    if (id === "iia") return "fa-solid fa-network-wired";
     if (id === "lcd") return "fa-solid fa-terminal";
     if (id === "isisa") return "fa-solid fa-microchip";
 
@@ -59,18 +124,18 @@ function renderizarMaterias(lista) {
     lista.forEach((materia) => {
         // 1. Obtener el icono dinámico según la carrera y plan
         // Esta función debe estar definida arriba de este ciclo
-        const iconoCarrera = obtenerIconoPorCarrera(materia.carrera_id, materia.plan_id);
+        const iconoCarrera = obtenerIconoPorCarrera(materia.carrera, materia.plan);
         // Generamos un ID único combinando carrera, plan y clave
-        const idUnico = `${materia.carrera_id}-${materia.plan_id}-${materia.clave}`.toLowerCase();
+        const idUnico = `${materia.carrera}-${materia.plan}-${materia.id_ets}`.toLowerCase();
 
         const html = `
-            <article class="subject-item ${materia.color_class}" id="${idUnico}">
+            <article class="subject-item ${materia.color_class.toLowerCase()}" id="${idUnico}">
                 <div class="subject-row" onclick="toggleInfo('${idUnico}')" style="cursor:pointer;">
                     <div class="subject-icon">
                         <i class="${iconoCarrera}"></i>
                     </div>
-                    <span class="subject-name">${materia.nombre}</span>
-                    <span class="subject-tag ms-2">${materia.carrera_id.toUpperCase()} - ${materia.plan_id}</span>
+                    <span class="subject-name">${materia.materia}</span>
+                    <span class="subject-tag ms-2">${materia.carrera.toUpperCase()} - ${materia.plan}</span>
                     <i class="fa-solid fa-chevron-down arrow-icon ms-auto"></i>
                 </div>
                 
@@ -78,13 +143,13 @@ function renderizarMaterias(lista) {
                     <div class="info-grid p-3">
                         <div class="row">
                             <div class="col-md-6">
-                                <p><strong>Fecha:</strong> ${materia.info.fecha}</p>
-                                <p><strong>Horario:</strong> ${materia.info.horario}</p>
-                                <p><strong>Salón/Lab:</strong> ${materia.info.salon}</p>
+                                <p><strong>Fecha:</strong> ${materia.fecha}</p>
+                                <p><strong>Horario:</strong> ${materia.hora}</p>
+                                <p><strong>Salón/Lab:</strong> ${materia.salon}</p>
                             </div>
                             <div class="col-md-6 text-end">
-                                <p><strong>Coordinador:</strong> ${materia.info.coordinador}</p>
-                                <p><strong>Proyecto:</strong> ${materia.info.proyecto}</p>
+                                <p><strong>Coordinador:</strong> ${materia.coordinador}</p>
+                                <p><strong>Proyecto:</strong> ${materia.proyecto}</p>
                                 <button class="btn btn-outline-danger btn-sm mt-2">
                                     <i class="fa-solid fa-file-pdf"></i> Descargar Guía
                                 </button>
